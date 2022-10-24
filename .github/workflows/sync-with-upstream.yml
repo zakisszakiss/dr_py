@@ -2,7 +2,7 @@ name: 'Upstream Sync'
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch: # click the button on Github repo!
 
 jobs:
@@ -33,9 +33,6 @@ jobs:
         upstream_sync_repo: qq_32394351/dr_py
         host_domain: gitcode.net
 
-        # Set test_mode true to run tests instead of the true action!!
-        test_mode: true
-      
     # Step 3: Display a sample message based on the sync output var 'has_new_commits'
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'
